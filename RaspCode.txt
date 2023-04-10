@@ -1,0 +1,12 @@
+import RPi.GPIO as GPIO
+import time
+
+LedPin = 3
+GPIO-setmode(GPIO.BCM)
+GPIO.setup(LedPin , GPIO.OUT)
+
+while True:
+        GPIO.output(LedPin , GPIO.HIGH)
+        time.sleep(1)
+        GPIO.outut(LedPin , GPIO.LOW)
+        time.sleep(1) 
