@@ -1,0 +1,33 @@
+  GNU nano 5.4                                                                                                        nose.py                                                                                                                
+import keyboard
+import RPi.GPIO as GPIO
+import time
+
+LED1 = 3
+LED2 = 5
+LED3 = 7
+ 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED1, GPIO.OUT)
+GPIO.setup(LED2, GPIO.OUT)
+GPIO.setup(LED3, GPIO.OUT)
+ 
+GPIO.cleanup()
+while True:
+        if keyboard.is_pressed('esc'):
+                break
+        GPIO.output(LED1, GPIO.HIGH)
+        GPIO.output(LED2, GPIO.LOW)
+        GPIO.output(LED3, GPIO.LOW)
+        print('LED1 ON')
+        time.sleep(1)
+        GPIO.output(LED1, GPIO.LOW)
+        GPIO.output(LED2, GPIO.HIGH)
+        GPIO.output(LED3, GPIO.LOW)
+        print('LED2 ON')
+        time.sleep(1)
+        GPIO.output(LED1, GPIO.LOW)
+        GPIO.output(LED2, GPIO.LOW)
+        GPIO.output(LED3, GPIO.HIGH)
+        print('LED3 ON')
+GPIO.cleanup()
